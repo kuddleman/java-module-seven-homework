@@ -1,6 +1,6 @@
-import java.util.Objects;
+import java.util.*;
 
-public class EmergencyShelterWaitlist {
+public class EmergencyShelterWaitlist implements Comparable<EmergencyShelterWaitlist> {
     private String position,
                    seniorityNumber,
                    dateOfBirth,
@@ -90,5 +90,14 @@ public class EmergencyShelterWaitlist {
 
     public void process() {
         // code here to process a business
+    }
+
+    @Override
+    public int compareTo(EmergencyShelterWaitlist otherList) {
+        if(dateOfBirth.equals(otherList.dateOfBirth)) {
+            return srNum.compareTo(otherList.srNum);
+            } else {
+            return changesId.compareTo(otherList.changesId);
+        }
     }
 }
